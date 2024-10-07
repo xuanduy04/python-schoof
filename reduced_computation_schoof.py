@@ -257,9 +257,12 @@ def reduced_computation_schoof_algorithm( p, A, B, output=sys.stdout ):
 
 
 if __name__ == "__main__":
-    runner = AlgorithmRunner(
-                     reduced_computation_schoof_algorithm,
-                     algorithm_version="$Rev$"
-                 ) 
-    runner.run()
+    parser = argparse.ArgumentParser(description="Run Schoof's algorithm on an elliptic curve.")
+    
+    parser.add_argument("p", type=int, help="The prime number defining the finite field GF<p>.")
+    parser.add_argument("A", type=int, help="The coefficient A in the elliptic curve equation.")
+    parser.add_argument("B", type=int, help="The coefficient B in the elliptic curve equation.")
 
+    args = parser.parse_args()
+    
+    reduced_computation_schoof_algorithm(args.p, args.A, args.B)
