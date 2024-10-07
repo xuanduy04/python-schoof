@@ -257,6 +257,9 @@ def reduced_computation_schoof_algorithm( p, A, B, output=sys.stdout ):
 
 
 if __name__ == "__main__":
+    import sys
+    import argparse
+    
     parser = argparse.ArgumentParser(description="Run Schoof's algorithm on an elliptic curve.")
     
     parser.add_argument("p", type=int, help="The prime number defining the finite field GF<p>.")
